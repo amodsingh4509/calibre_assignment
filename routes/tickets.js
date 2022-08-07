@@ -65,7 +65,7 @@ routes.post('/markAsClosed/:id', verifyAdmin || verifytoken, async (req, res,nex
                 next(error);
             }
         }
-        const highprioritytickets = await Tickets.find({username:ticket.username,priority:"high"|| "medium"});
+        const highprioritytickets = await Tickets.find({username:ticket.username,priority:"high"|| "medium",status:"open"});
         if (!highprioritytickets.length) {
             try {
                 await Tickets.findByIdAndUpdate(req.params.id, { status: "closed" });
