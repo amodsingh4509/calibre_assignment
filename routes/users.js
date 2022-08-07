@@ -12,14 +12,12 @@ routes.post('/new',async (req,res,next)=>{
         const newuser = await Users.create(req.body);
 
         const token = jwt.sign({id:newuser._id,role:newuser.role},process.env.TOKEN);
-        res.cookie('access_token',token,{httpOnly:true}).status(200).send("User created successfully")
+        res.cookie('access_token',token,{httpOnly:true}).status(200).send(newuser)
         
     } catch (error) {
         next(error);
     }
 })
-routes.get('/new', (req,res)=>{
-    res.status(200).json({ message: 'New Post' });
-})
+
 
 export default routes;

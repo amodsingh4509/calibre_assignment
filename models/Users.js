@@ -2,15 +2,15 @@ import mongoose from 'mongoose';
 
 const UserSchema = mongoose.Schema({
 
-    username: {
+    username:{
         type: String,
-        required: true,
-        unique: true,
+        unique:true,
+        required:true,
     },
-    role: {
+    role:{
         type: String,
         requried: true,
-    }
+    },
 
 },
     { timestamp: true }

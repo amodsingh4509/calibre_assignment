@@ -17,7 +17,9 @@ routes.post('/new', verifyAdmin, async (req, res, next) => {
 
 
     try {
-        var random = Math.floor(Math.random() * 10)
+        const total = await Users.find();
+        console.log(total.length)
+        var random = Math.floor(Math.random() * total.length)
         console.log(random);
         const assigned = await Users.findOne().skip(random)
         // res.status(200).json(assigned)
