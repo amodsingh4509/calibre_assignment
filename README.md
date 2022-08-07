@@ -5,7 +5,7 @@
 ### Deployment Url: https://calibre-test-api.herokuapp.com/
 ### Log File: File in github repository `access.log`  or  https://drive.google.com/file/d/1ub1TWyNbTSAV5xn9cbIDcOKjHckQ6Lls/view?usp=sharing
 ### Things to do for run.
-1. Run `npm i` or `npm install` to get node modules the run `npm start`
+1. Run `npm i` or `npm install` to get node modules then run `npm start`
 2. Edit the MONGO_URL to you mongodb account url in the `.env` file or run it as it is.
 3. Test the endpoints in Postman
 
