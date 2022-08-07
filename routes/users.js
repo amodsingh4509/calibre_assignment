@@ -12,7 +12,7 @@ routes.post('/new',async (req,res,next)=>{
         const newuser = await Users.create(req.body);
 
         const token = jwt.sign({id:newuser._id,role:newuser.role},process.env.TOKEN);
-        res.cookie('access_token',token,{httpOnly:true}).status(200).send(newuser)
+        res.cookie('access_token',token,{httpOnly:true}).status(200).send("User created successfully")
         
     } catch (error) {
         next(error);

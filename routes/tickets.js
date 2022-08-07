@@ -18,9 +18,7 @@ routes.post('/new', verifyAdmin, async (req, res, next) => {
 
     try {
         const total = await Users.find();
-        console.log(total.length)
         var random = Math.floor(Math.random() * total.length)
-        console.log(random);
         const assigned = await Users.findOne().skip(random)
         // res.status(200).json(assigned)
         console.log(assigned)
@@ -68,7 +66,7 @@ routes.post('/markAsClosed/:id', verifyAdmin || verifytoken, async (req, res,nex
             }
         }
         const highprioritytickets = await Tickets.find({username:ticket.username,priority:"high"|| "medium"});
-        if (!highprioritytickets) {
+        if (!highprioritytickets.length) {
             try {
                 await Tickets.findByIdAndUpdate(req.params.id, { status: "closed" });
                 res.status(200).send("Status Closed")
@@ -85,7 +83,7 @@ routes.post('/markAsClosed/:id', verifyAdmin || verifytoken, async (req, res,nex
     }
     
 })
-routes.post('/delete/:id', verifyAdmin, async (req, res) => {
+routes.post('/delete/:id', verifyAdmin, async (req, res,next) => {
     try {
         await Tickets.findByIdAndDelete(req.params.id);
         res.status(200).send("Ticket Deleted")
