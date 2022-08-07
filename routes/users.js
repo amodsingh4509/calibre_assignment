@@ -1,6 +1,7 @@
 import express from 'express';
 import Users from '../models/Users.js';
 import jwt from 'jsonwebtoken'
+import { verifyAdmin } from '../utils/verifyauth.js';
 
 
 const routes = express.Router();

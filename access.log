@@ -1,0 +1,8 @@
+::1 - - [07/Aug/2022:11:40:31 +0000] "POST /users/new HTTP/1.1" 200 25 "-" "PostmanRuntime/7.29.2"
+::1 - - [07/Aug/2022:11:41:09 +0000] "POST /tickets/new HTTP/1.1" 201 33 "-" "PostmanRuntime/7.29.2"
+::1 - - [07/Aug/2022:12:02:33 +0000] "GET /tickets/all HTTP/1.1" 200 1617 "-" "PostmanRuntime/7.29.2"
+::1 - - [07/Aug/2022:12:02:36 +0000] "GET /tickets/?title=Data%20not%20found HTTP/1.1" 200 1453 "-" "PostmanRuntime/7.29.2"
+::1 - - [07/Aug/2022:12:02:39 +0000] "GET /tickets/?priority=low HTTP/1.1" 200 1453 "-" "PostmanRuntime/7.29.2"
+::1 - - [07/Aug/2022:12:02:41 +0000] "GET /tickets/?status=open HTTP/1.1" 200 1453 "-" "PostmanRuntime/7.29.2"
+::1 - - [07/Aug/2022:12:03:02 +0000] "POST /markAsClosed/62ef979b8bdf3c10aa95bfb4 HTTP/1.1" 404 177 "-" "PostmanRuntime/7.29.2"
+::1 - - [07/Aug/2022:12:05:10 +0000] "POST /tickets/delete/62ef977c8bdf3c10aa95bfae HTTP/1.1" 200 14 "-" "PostmanRuntime/7.29.2"

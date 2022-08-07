@@ -5,7 +5,7 @@ import Users from '../models/Users.js';
 import morgan from 'morgan'
 
 const routes = express.Router();
-routes.get('/all', morgan("combined"), async (req, res, next) => {
+routes.get('/all', async (req, res, next) => {
     try {
         const alltickets = await Tickets.find();
         res.status(200).json(alltickets);
@@ -15,9 +15,6 @@ routes.get('/all', morgan("combined"), async (req, res, next) => {
 });
 routes.post('/new', verifyAdmin, async (req, res, next) => {
 
-
-    // console.log(Users.count());
-    // res.status(200).json("done");
 
     try {
         var random = Math.floor(Math.random() * 10)
@@ -43,10 +40,7 @@ routes.post('/new', verifyAdmin, async (req, res, next) => {
 
 
 });
-routes.get('/checkauth', verifyAdmin, async (req, res, next) => {
-    res.status(200).json("user is authenticated")
 
-});
 routes.get('/:id', async (req, res, next) => {
 
     try {
