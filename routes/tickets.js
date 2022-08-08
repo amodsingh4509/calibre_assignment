@@ -59,7 +59,7 @@ routes.post('/markAsClosed/:id', verifyAdmin || verifytoken, async (req, res,nex
         if(ticket.priority === 'high')
         {
             try {
-                await Tickets.findByIdAndUpdate(req.params.id, { status: "closed" });
+                await Tickets.findByIdAndUpdate(req.params.id, { status: "close" });
                 res.status(200).send("Status Closed")
             } catch (error) {
                 next(error);
@@ -68,7 +68,7 @@ routes.post('/markAsClosed/:id', verifyAdmin || verifytoken, async (req, res,nex
         const highprioritytickets = await Tickets.find({username:ticket.username,priority:"high"|| "medium",status:"open"});
         if (!highprioritytickets.length) {
             try {
-                await Tickets.findByIdAndUpdate(req.params.id, { status: "closed" });
+                await Tickets.findByIdAndUpdate(req.params.id, { status: "close" });
                 res.status(200).send("Status Closed")
             } catch (error) {
                 next(error);
